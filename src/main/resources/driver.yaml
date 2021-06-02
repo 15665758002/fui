@@ -1,0 +1,11 @@
+browser: CHROME
+browserVersion:
+customBrowserImpl:
+device:
+gridURL:
+headless:
+maximise: true
+maxRetryCount: 3
+platform:
+platformVersion:
+threads: 1
