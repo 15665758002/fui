@@ -39,7 +39,8 @@ public class LoggingListener extends AbstractWebDriverEventListener {
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
         if (element != null) {
-            new ElementHighlighter(driver).highlightElement(element);
+//            new ElementHighlighter(driver).highlightElement(element);
+            new ElementHighlighter(driver).highlightElementNew(element);
         }
         logger.debug("found element {}", by);
     }

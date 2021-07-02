@@ -35,7 +35,53 @@ public class ElementHighlighter {
             // something went wrong, but no need to crash for highlighting
         }
     }
+    public void highlightElementNew(WebElement webElement) {
 
+        previousElem = webElement; // remember the new element
+        try {
+            // TODO: save the previous border
+//            Object original_style = js.executeScript("arguments[0].getAttribute('style');"
+//                    , webElement);
+
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(128, 128, 128, 0.5)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(255, 0, 0, 1)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(128, 0, 128, 1)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(0, 0, 255, 1)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(0, 255, 0, 1)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];"  +
+                            "element.style.boxShadow =\n" +
+                            "'0px 0px 6px 6px rgba(128, 128, 0, 1)';"
+                    , webElement);
+            Thread.sleep(20);
+            js.executeScript("element = arguments[0];" +
+                    "element.style.boxShadow ='0px 0px 6px 6px rgba(128, 0, 128, 1)';", webElement);
+            Thread.sleep(20);
+
+//            js.executeScript("arguments[0].setAttribute('style',arguments[1]);"
+//                    , webElement,original_style);
+        } catch (InterruptedException e) {
+        }
+    }
     /**
      * Unhighlight the previously highlighted WebElement.
      */
